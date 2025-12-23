@@ -24,7 +24,6 @@ The goal of this pipeline is to:
 ├── extra/                        # Helper files not used in main pipeline
 ├── figuras/                      # Figures generated across the analysis
 ├── trim.sh                       # Read trimming and basic quality filtering on the cluster
-├── mapping_reads.sh              # Alignment of reads to the reference genome
 ├── Mm_gtf_filt.sh                # Preprocessing/filtering of mouse GTF annotation with MITOCarta 3.0
 ├── htseq_gtf_filt.sh             # Generation/filtering of HTSeq gene count tables
 ├── 00_read_distribution.R        # Read distribution and QC plots from aligned data
