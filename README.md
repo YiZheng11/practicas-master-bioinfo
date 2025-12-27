@@ -3,10 +3,10 @@ This repository contains the shell, R, and Jupyter scripts developed during my i
 
 ## Objectives
 The goal of this pipeline is to:
-- Download public or internal RNA‑seq data.
-- Perform quality control and trimming.
+- Perform quality control and trimming of RNA-seq data.
 - Align reads to a reference genome and generate count tables.
 - Run differential expression and basic exploratory analyses.
+- Run functional analyses.
 
 ## Project Structure
 ```
