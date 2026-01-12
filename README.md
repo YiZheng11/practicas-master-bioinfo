@@ -1,5 +1,5 @@
 # RNA‑seq Processing Pipeline (Internship Project)
-This repository contains the shell, R, and Jupyter scripts developed during my internship to process RNA‑seq data on a high‑performance computing cluster and perform downstream statistical and functional analyses in R and Python. Raw sequencing reads are not included due to confidentiality and storage constraints; instead, the repository focuses on a reproducible pipeline, including differential expression (DESeq2), visualization, GO enrichment, GSEA, and selected non‑sensitive figures, together with instructions to generate intermediate files and summary results from accessible input tables.
+This repository contains the shell, R, and Jupyter scripts developed during my internship to process RNA‑seq data on a high‑performance computing cluster and perform downstream statistical and functional analyses in R and Python. Raw sequencing reads are not included due to confidentiality and storage constraints; instead, the repository focuses on a reproducible pipeline, including differential expression (DESeq2), visualization, GO enrichment, GSEA, together with instructions to generate files and summary results from input tables.
 
 ## Objectives
 The goal of this pipeline is to:
