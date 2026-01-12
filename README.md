@@ -33,6 +33,7 @@ For confidentiality and storage reasons, this repository only includes the custo
 
 ## Usage
 The pipeline is organized as a series of shell and R scripts that should be run in the following order:
+
 **1. Pre‑processing on the cluster (shell scripts)**
 ```
 trim.sh
