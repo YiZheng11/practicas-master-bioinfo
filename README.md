@@ -33,7 +33,7 @@ For confidentiality and storage reasons, this repository only includes the custo
 
 ## Usage
 The pipeline is organized as a series of shell and R scripts that should be run in the following order:
-1. Pre‑processing on the cluster (shell scripts)
+**1. Pre‑processing on the cluster (shell scripts)**
 ```
 trim.sh
 ```
@@ -53,15 +53,15 @@ htseq_gtf_filt.sh
 - Input: coordinate‑sorted BAM files, filtered GTF.
 - Output: one raw gene‑level count table (*.tsv) per sample in data/04_htseq/.
 
-2. Quality control and exploratory analysis (R / Python)
+**2. Quality control and exploratory analysis**
 ```
 00_read_distribution.R
 ```
 - Summarizes read counts per sample (total, mapped, assigned to genes) and generates QC plots (density plots, boxplots, read‑distribution figures).
-- Input: HTSeq count tables and alignment/trim logs.
+- Input: HTSeq count tables.
 - Output: summary tables and QC figures saved in figuras/ and data/.
 
-3. Differential expression analysis
+**3. Differential expression analysis**
 ```
 01_deseq.R
 ```
@@ -70,32 +70,33 @@ htseq_gtf_filt.sh
 - Input: merged count matrix from data/04_htseq/ and sample metadata table.
 - Output: DESeq2 result tables and normalized counts in data/05_deseq/, plus PCA and volcano/MA plots in figuras/.
 
-4. Differential expression post‑processing results
+**4. Differential expression post‑processing results**
 ```
 01A_tsv2excel.ipynb
 ```
-- Converts selected DESeq2 result tables and summaries to Excel format for easier inspection and for inclusion in the thesis.
+- Converts selected DESeq2 result tables to Excel format for easier inspection.
 - Input: DESeq2 result *.tsv files.
-- Output: Excel spreadsheets in data/05_deseq/.
+- Output: Excel spreadsheets.
 ```
 01B_GO_classification.R
 ```
 - Performs GO classification/enrichment on significant DEGs (e.g. lipid metabolism, mitochondrial processes) and generates barplots/pie charts.
 - Input: DEG lists from DESeq2 and GO annotation.
-- Output: GO enrichment tables and figures saved in figuras/.
+- Output: GO enrichment figures saved in figuras/.
 ```
 02_log2FC.R
 ```
-- Extracts log2 fold changes for predefined gene sets (stored in data/genes_of_interest/), generates heatmaps and additional visualizations used in the thesis.
+- Extracts log2 fold changes for predefined gene sets (stored in data/genes_of_interest/), generates log2FC visualizations.
 - Input: DESeq2 normalized counts and log2FC tables.
-- Output: log2FC summary tables and figures in figuras/.
-5. Functional analysis
+- Output: log2FC figures in figuras/.
+
+**5. Functional analysis**
 ```
 03_GSEA.R
 ```
 - Runs Gene Set Enrichment Analysis (GSEA) on ranked gene lists (Wald statistics from DESeq2) using clusterProfiler.
 - Input: DESeq2 result tables and gene‑set definitions (e.g. GO, MitoCarta‑based sets).
-- Output: GSEA enrichment tables, dot plots and network plots used in the thesis figures.
+- Output: GSEA enrichment tables, dot plots and network plots used in the report figures.
 
 ### Reproducibility notes
 Because raw sequencing data cannot be shared, reproduction of the full pipeline requires access to:
