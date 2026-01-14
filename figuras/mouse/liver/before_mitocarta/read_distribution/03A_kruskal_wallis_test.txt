@@ -1,0 +1,9 @@
+Kruskal-Wallis Test
+===================
+
+
+	Kruskal-Wallis rank sum test
+
+data:  logcounts by condition
+Kruskal-Wallis chi-squared = 7633.2, df = 13, p-value < 2.2e-16
+

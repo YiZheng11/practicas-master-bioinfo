@@ -1,0 +1,65 @@
+EXPLORATORY STATISTICAL ANALYSIS SUMMARY
+========================================
+
+Dataset: after_mitocarta 
+Number of conditions: 14 
+Conditions: G10, G11, G12, G13, G14, G1, G2, G3, G4, G5, G6, G7, G8, G9 
+Total observations: 91960 
+
+1. NORMALITY ASSESSMENT (Shapiro-Wilk)
+---------------------------------------
+       condition         W      p.value
+W...1        G10 0.8768109 8.757135e-53
+W...2        G11 0.8818854 4.716814e-52
+W...3        G12 0.8806096 3.071670e-52
+W...4        G13 0.8703847 1.125389e-53
+W...5        G14 0.8662419 3.134249e-54
+W...6         G1 0.8864020 2.222113e-51
+W...7         G2 0.8791307 1.877167e-52
+W...8         G3 0.8808892 3.373318e-52
+W...9         G4 0.8722127 1.999765e-53
+W...10        G5 0.8782346 1.396258e-52
+W...11        G6 0.8781878 1.374916e-52
+W...12        G7 0.8744005 4.015248e-53
+W...13        G8 0.8710488 1.385697e-53
+W...14        G9 0.8829774 6.829845e-52
+
+Interpretation: ALL conditions reject normality (p < 0.05)
+All 14 conditions show non-normal distributions.
+Result saved in '02B_shapiro_wilk_test.txt'.
+
+
+2. HOMOGENEITY OF VARIANCE (Levene's Test)
+-------------------------------------------
+Levene's Test for Homogeneity of Variance (center = "median")
+         Df F value    Pr(>F)    
+group    13  9.6823 < 2.2e-16 ***
+      91946                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Interpretation: Variances are NOT homogeneous across conditions (p < 0.05)
+Result saved in '02C_levene_test.txt'.
+
+
+3. GLOBAL TEST (Kruskal-Wallis)
+--------------------------------
+
+	Kruskal-Wallis rank sum test
+
+data:  logcounts by condition
+Kruskal-Wallis chi-squared = 1019.6, df = 13, p-value < 2.2e-16
+
+
+Interpretation: At least one condition differs significantly (p < 0.05)
+Result saved in '03A_kruskal_wallis_test.txt'.
+
+
+4. POST HOC TEST (Dunn's Test)
+-------------------------------
+Number of pairwise comparisons: 91 
+Significant comparisons (p.adj < 0.05): 67 
+Non-significant comparisons (p.adj >= 0.05): 24 
+See '03B_dunn_posthoc_results.tsv' for all pairwise comparisons,
+including Z statistic, raw and adjusted p-values, and direction
+of the effect based on mean log2(counts + 1).
