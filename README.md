@@ -1,5 +1,5 @@
 # RNA‑seq Processing Pipeline (Internship Project)
-This repository contains the shell, R, and Jupyter scripts developed during my internship to process RNA‑seq data on a high‑performance computing cluster and perform downstream statistical and functional analyses in R and Python. Raw sequencing reads are not included due to confidentiality and storage constraints; instead, the repository focuses on a reproducible pipeline, including differential expression (DESeq2), visualization, GO enrichment, GSEA, together with instructions to generate files and summary results from input tables.
+This repository contains the shell, R, and Jupyter scripts developed during my internship to process RNA‑seq data on a high‑performance computing cluster and perform downstream statistical and functional analyses in R and Python. Raw sequencing reads and alignment files are not included due to confidentiality and storage constraints, but gene‑level count tables and processed results are provided so that all downstream analyses (DESeq2, GO enrichment, GSEA and visualizations) can be fully reproduced from this repository.
 
 ## Objectives
 The goal of this pipeline is to:
@@ -16,8 +16,8 @@ The goal of this pipeline is to:
 │   ├── 05_deseq/                 # DESeq2 result tables and normalized counts table
 │   ├── genes_of_interest/        # Gene lists used for log2FC.R analyses
 │   └── Mouse.MitoCarta3.0_mm10to39.bed  # Mitochondrial gene set from MitoCarta in BED format
-├── extra/                        # Helper files not used in main pipeline
-├── figuras/                      # Figures generated across the analysis
+├── extra/mouse/liver             # Helper files
+├── figuras/mouse/liver           # Figures generated across the analysis
 ├── trim.sh                       # Read trimming and basic quality filtering on the cluster
 ├── Mm_gtf_filt.sh                # Preprocessing/filtering of mouse GTF annotation with MITOCarta 3.0
 ├── htseq_gtf_filt.sh             # Generation/filtering of HTSeq gene count tables
@@ -104,4 +104,4 @@ Because raw sequencing data cannot be shared, reproduction of the full pipeline 
 - CBMSO cluster to perform the preprocessing steps
 - Sample metadata describing the 14 experimental groups (Table 1 in the Intership Report).
 
-Given equivalent inputs, running the scripts in the order listed above regenerates the count tables, DESeq2 results, GSEA outputs and all figures included in the report.
+However, given the count tables in data/04_htseq/ and the sample metadata (14 experimental groups, Table 1 in the internship report), running the R and notebook scripts in the order listed above regenerates the DESeq2 results, GSEA outputs and figures used in the report, without access to the original FASTQ/BAM files.
